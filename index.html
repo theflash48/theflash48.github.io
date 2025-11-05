@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pablo Vicente Rozalén Fernández — Portfolio</title>
+  <meta name="description" content="Portfolio de Pablo Vicente Rozalén Fernández — Programador C#/Unity. PC (montaje y mantenimiento), VR (Meta Quest 2), periféricos Logitech (G923) y simracing.">
+  <meta property="og:title" content="Pablo Vicente Rozalén Fernández — Portfolio" />
+  <meta property="og:description" content="Programador C#/Unity. PC (montaje y mantenimiento), VR (Meta Quest 2), periféricos Logitech (G923) y simracing." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --text: #e8e8ea;
+      --muted: #a9acb2;
+      --card: #12141a;
+      --border: #22242b;
+      --accent: #7c9eff;
+      --accent-2: #51d6a9;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f8fafc; --text:#0f172a; --muted:#475569; --card:#ffffff; --border:#e2e8f0; --accent:#365cff; --accent-2:#16a34a; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(124,158,255,0.08), transparent),
+                  radial-gradient(1000px 500px at 120% 10%, rgba(81,214,169,0.08), transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(120%) blur(6px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav a { font-weight: 600; }
+    .nav .links { display: flex; gap: 16px; }
+
+    .hero { padding: 56px 0 24px; display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: center; }
+    .avatar { width: 96px; height: 96px; border-radius: 20px; border:1px solid var(--border); background: var(--card); display:grid; place-items:center; font-weight:800; font-size: 26px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -0.02em; }
+    .tag { display:inline-block; background: var(--card); border:1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; color: var(--muted); }
+    .muted { color: var(--muted); }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .card { grid-column: span 12; background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 18px; }
+    @media (min-width: 720px) { .card.half { grid-column: span 6; } }
+
+    .btns { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .btn { display:inline-block; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-weight:600; }
+    .btn.primary { border-color: color-mix(in srgb, var(--accent) 60%, var(--border)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent); }
+    .btn.secondary { border-color: var(--border); }
+
+    h2 { margin: 8px 0 8px; font-size: 18px; letter-spacing: .2px; }
+    .list { margin: 0; padding-left: 16px; }
+
+    footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 14px; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .card { transition: transform .2s ease, box-shadow .2s ease; }
+      .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#top" aria-label="Inicio">PV</a>
+      <nav class="links" aria-label="Secciones del portfolio">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="avatar" aria-hidden="true">PV</div>
+      <div>
+        <h1 id="titulo">Pablo Vicente Rozalén Fernández</h1>
+        <p class="muted">Programador <strong>C# / Unity</strong> · PC (montaje y mantenimiento) · VR (Meta Quest 2) · Periféricos Logitech (G923) y simracing.</p>
+        <div class="btns">
+          <a class="btn primary" href="./CV_Pablo_Vicente.pdf">Descargar CV (PDF)</a>
+          <a class="btn secondary" href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="grid" aria-labelledby="proyectos-titulo">
+      <div class="card" role="article" aria-labelledby="lobstar-title">
+        <span class="tag" aria-label="Premios a Lobstar">Premios: Favorito del público y del jurado — Florida Game Fest</span>
+        <h2 id="lobstar-title">Lobstar (Unity/C#)</h2>
+        <p>Acción kaiju: destruye capitales del mundo para saciar el hambre y crecer. Rol: programación en Unity/C# y preparación de demo/presentación.</p>
+        <div class="btns">
+          <a class="btn primary" href="#" aria-disabled="true" onclick="return false;">Jugar en el navegador (WebGL) — pronto</a>
+          <a class="btn secondary" href="#contacto">Solicitar más información</a>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h2>Montaje y mantenimiento de PCs</h2>
+        <ul class="list">
+          <li>Selección de componentes y ensamblaje desde cero (BIOS, SO, drivers).</li>
+          <li>Mantenimiento preventivo (limpieza, gestión térmica) y correctivo básico.</li>
+        </ul>
+      </div>
+
+      <div class="card half">
+        <h2>VR y periféricos</h2>
+        <ul class="list">
+          <li>VR: uso y configuración básica — <strong>Meta Quest 2</strong>.</li>
+          <li>Simracing y periféricos Logitech: <strong>G923</strong> (volantes/pedales) y configuraciones iniciales.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="habilidades" class="grid" aria-labelledby="habilidades-titulo">
+      <div class="card">
+        <h2 id="habilidades-titulo">Habilidades</h2>
+        <ul class="list">
+          <li><strong>Programación:</strong> C#, Unity, control de versiones con Git/GitHub.</li>
+          <li><strong>PC:</strong> componentes, montaje propio y mantenimiento básico.</li>
+          <li><strong>Android:</strong> configuración y migración de datos.</li>
+          <li><strong>Smart home:</strong> configuración básica de ecosistemas domésticos.</li>
+          <li><strong>Atención al cliente:</strong> dispuesto a aprender <em>en tienda</em> venta consultiva, servicios y operativa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="grid" aria-labelledby="contacto-titulo">
+      <div class="card">
+        <h2 id="contacto-titulo">Contacto</h2>
+        <p>¿Hablamos? Escríbeme a <a href="mailto:pabloski.2002@gmail.com">pabloski.2002@gmail.com</a> o llámame al <a href="tel:+34633323259">+34 633 323 259</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> Pablo Vicente Rozalén Fernández — València</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
