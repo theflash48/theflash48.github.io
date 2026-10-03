@@ -92,9 +92,9 @@ footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-s
       <div>
         <div class="kicker">Puzzle-platformer / Student project</div>
         <h1>Echoes<br><span class="ghost-word">of Failure</span></h1>
-        <p class="hero-copy"><strong>Every mistake stays behind. Use it.</strong> Each failed run returns as a ghost that repeats your actions. Solve the room by cooperating with the history of your own attempts.</p>
-        <div class="cta-row"><a class="btn primary" href="#loop">Understand the mechanic</a><a class="btn" href="#prototype">Prototype plan</a></div>
-        <div class="meta"><span>PC FIRST</span><span>PREMIUM INDIE</span><span>EARLY CONCEPT</span></div>
+        <p class="hero-copy"><strong>Every mistake stays behind. Use it.</strong> A failed run becomes a ghost that repeats its recorded actions. Later attempts can use that timing to open routes, hold switches and reach the exit.</p>
+        <div class="cta-row"><a class="btn primary" href="#loop">How it works</a><a class="btn" href="#prototype">Prototype scope</a></div>
+        <div class="meta"><span>PC CONCEPT</span><span>EARLY DEVELOPMENT</span></div>
       </div>
       <div class="stage" aria-label="Stylised puzzle room with a current player and three replay ghosts">
         <div class="platform plat-a"></div><div class="platform plat-b"></div><div class="platform plat-c"></div><div class="platform plat-d"></div>
@@ -112,11 +112,11 @@ footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-s
 
 
     <section class="section" id="loop">
-      <div class="section-head"><div class="section-index">01 / CORE LOOP</div><div class="section-title"><h2>Failure is not a reset.</h2><p>It is the material the next attempt is built from.</p></div></div>
+      <div class="section-head"><div class="section-index">01 / CORE LOOP</div><div class="section-title"><h2>A reset leaves something behind.</h2><p>The next attempt can plan around the recording from the previous one.</p></div></div>
       <div class="loop-grid">
         <article class="step"><div class="step-no">01 — ATTEMPT</div><div class="symbol">→</div><h3>Try the room</h3><p>Move, jump, trigger switches and test a route through the puzzle.</p></article>
         <article class="step"><div class="step-no">02 — FAIL</div><div class="symbol">×</div><h3>Your run remains</h3><p>Resetting leaves behind an echo that repeats exactly what you did.</p></article>
-        <article class="step"><div class="step-no">03 — COOPERATE</div><div class="symbol">∞</div><h3>Use your past self</h3><p>Stack imperfect attempts until their combined actions create one complete solution.</p></article>
+        <article class="step"><div class="step-no">03 — COOPERATE</div><div class="symbol">∞</div><h3>Use your past self</h3><p>Time the next run around the echoes already in the room and combine their actions to finish the puzzle.</p></article>
       </div>
     </section>
 
@@ -131,19 +131,19 @@ footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-s
         </div>
         <div class="principles">
           <div class="principle"><em>Readability</em><b>Current player vs. recorded echoes</b><span>The live player is solid white. Past attempts are translucent violet silhouettes, readable at a glance.</span></div>
-          <div class="principle"><em>Reliability</em><b>Deterministic playback</b><span>Echoes reproduce recorded actions consistently, so success depends on planning rather than randomness.</span></div>
-          <div class="principle"><em>Rhythm</em><b>Instant retry</b><span>Resetting is immediate. The design encourages experimentation instead of punishing it.</span></div>
+          <div class="principle"><em>Reliability</em><b>Deterministic playback</b><span>Echoes reproduce the same recorded actions on every retry. The player can therefore plan exact timings.</span></div>
+          <div class="principle"><em>Rhythm</em><b>Instant retry</b><span>Resetting is immediate, so testing a timing or route takes only a few seconds.</span></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="features">
-      <div class="section-head"><div class="section-index">03 / VALUE</div><div class="section-title"><h2>One rule. A lot of puzzle depth.</h2><p>The mechanic is easy to communicate, visually distinctive and capable of scaling into increasingly elaborate rooms.</p></div></div>
+      <div class="section-head"><div class="section-index">03 / VALUE</div><div class="section-title"><h2>One replay rule, then new combinations.</h2><p>The rule is visible in a short sequence: one run records an action and the next run plans around it. Switches, moving platforms and hazards change how those recordings can be used.</p></div></div>
       <div class="features">
-        <article class="feature"><div class="glyph">↺</div><h3>Failure becomes progress</h3><p>Every reset adds information and a new mechanical resource instead of erasing the attempt.</p></article>
+        <article class="feature"><div class="glyph">↺</div><h3>Failed runs stay in the room</h3><p>Resetting keeps the previous attempt as a replay ghost that can be used in the next route.</p></article>
         <article class="feature"><div class="glyph">◌◌</div><h3>Cooperate with yourself</h3><p>Past versions can hold switches, trigger hazards and create openings for the live player.</p></article>
-        <article class="feature"><div class="glyph">⚡</div><h3>Fast experimentation</h3><p>Short rooms and instant retries encourage “one more attempt” problem-solving.</p></article>
-        <article class="feature"><div class="glyph">◇</div><h3>Expandable system</h3><p>Moving platforms, timed doors, hazards and synchronized actions add depth without changing the core rule.</p></article>
+        <article class="feature"><div class="glyph">⚡</div><h3>Short retry cycle</h3><p>Rooms are designed to be retried quickly, so the player can test a timing and immediately adjust it.</p></article>
+        <article class="feature"><div class="glyph">◇</div><h3>More puzzle elements</h3><p>Moving platforms, timed doors and hazards can be added while the replay rule stays the same.</p></article>
       </div>
     </section>
 
@@ -151,8 +151,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-s
       <div class="validation">
         <div class="validation-copy">
           <div class="section-index">04 / VALIDATION</div>
-          <div class="section-title" style="margin-top:18px"><h2>Prototype the idea, not the whole game.</h2></div>
-          <p>The first build only needs responsive movement, instant reset, replay recording and three compact rooms. The goal is to test whether players understand the system and intentionally turn failed attempts into tools.</p>
+          <div class="section-title" style="margin-top:18px"><h2>First prototype: three small rooms.</h2></div>
+          <p>The first build needs movement, instant reset, replay recording and three compact rooms. The test is simple: can players work out the rule and deliberately create a useful ghost?</p>
         </div>
         <div class="metric-list">
           <div class="metric"><strong>Scope</strong><span>1 greybox environment · 3 micro-puzzles · keyboard/controller</span></div>
@@ -165,8 +165,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-s
 
     <section class="final">
       <div class="kicker">Development status</div>
-      <h2>Every failure leaves something useful behind.</h2>
-      <p>Echoes of Failure is an early student-project concept by Pablo Vicente Rozalén Fernández and Doménec Gregori Esteve. The next milestone is a small greybox prototype focused entirely on the replay-ghost mechanic.</p>
+      <h2>Next step: test the replay system in a greybox.</h2>
+      <p>Echoes of Failure is an early student project by Pablo Vicente Rozalén Fernández and Doménec Gregori Esteve. The planned greybox will focus on movement, reset, replay accuracy and whether the puzzles remain readable with several ghosts on screen.</p>
       <div class="status"><i></i> Prototype validation planned</div>
     </section>
   </div>
