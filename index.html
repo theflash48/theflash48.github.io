@@ -1,136 +1,176 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pablo Vicente Rozalén Fernández — Portfolio</title>
-    <meta name="description" content="Portfolio de Pablo Vicente Rozalén Fernández — Programador C#/Unity.">
-    <meta property="og:title" content="Pablo Vicente Rozalén Fernández — Portfolio" />
-    <meta property="og:description" content="Programador C#/Unity." />
-    <meta property="og:type" content="website" />
-    <style>
-        :root {
-            --bg: #0b0c0f;
-            --text: #e8e8ea;
-            --muted: #a9acb2;
-            --card: #12141a;
-            --border: #22242b;
-            --accent: #7c9eff;
-            --accent-2: #51d6a9;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Echoes of Failure — a puzzle-platformer where every failed run becomes part of the solution.">
+<meta name="theme-color" content="#0a0a0e">
+<title>Echoes of Failure</title>
+<style>
+:root{
+  --ink:#f2efe8;
+  --paper:#0a0a0e;
+  --paper-2:#101017;
+  --muted:#9797a6;
+  --line:#2a2933;
+  --ghost:#a890ff;
+  --ghost-soft:#6f58d9;
+  --signal:#b9ff4a;
+  --danger:#ff5d72;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.mono{font-family:"Courier New",monospace}
 
-        
-        * { box-sizing: border-box; }
-        html, body { height: 100%; }
-        body {
-            margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-            background: radial-gradient(1200px 600px at 10% -10%, rgba(124,158,255,0.08), transparent),
-            radial-gradient(1000px 500px at 120% 10%, rgba(81,214,169,0.08), transparent),
-            var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        header {
-            position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(120%) blur(6px);
-            background: color-mix(in srgb, var(--bg) 85%, transparent);
-            border-bottom: 1px solid var(--border);
-        }
-        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .nav a { font-weight: 600; }
-        .nav .links { display: flex; gap: 16px; }
+nav{position:sticky;top:0;z-index:30;background:rgba(10,10,14,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900;letter-spacing:-.03em}.brand span{color:var(--ghost)}
+.nav-links{display:flex;gap:24px;color:#b7b5c2;font-size:.9rem}.nav-links a:hover{color:white}
 
-        .hero { padding: 56px 0 24px; display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: center; }
-        .avatar { width: 96px; height: 96px; border-radius: 20px; border:1px solid var(--border); background: var(--card); display:grid; place-items:center; font-weight:800; font-size: 26px; }
-        h1 { margin: 0 0 8px; font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -0.02em; }
-        .tag { display:inline-block; background: var(--card); border:1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; color: var(--muted); }
-        .muted { color: var(--muted); }
+.hero{min-height:calc(100vh - 64px);display:grid;grid-template-columns:1.03fr .97fr;gap:56px;align-items:center;padding:62px 0 70px}
+.kicker{font:700 .72rem/1 "Courier New",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
+.hero h1{margin:18px 0 24px;font-size:clamp(4.2rem,9vw,8.3rem);line-height:.78;letter-spacing:-.075em;text-transform:uppercase;max-width:730px}
+.hero h1 .ghost-word{color:transparent;-webkit-text-stroke:1px #b9adff;text-shadow:12px 0 0 rgba(168,144,255,.16),24px 0 0 rgba(168,144,255,.07)}
+.hero-copy{font-size:clamp(1.08rem,1.6vw,1.35rem);max-width:620px;color:#cbc8d4;margin:0}.hero-copy strong{color:white}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border:1px solid #494752;font-weight:800;font-size:.9rem;letter-spacing:.01em;transition:.18s}.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ghost)}.btn.primary{background:var(--ink);color:#111;border-color:var(--ink)}
+.meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#767585;font:700 .7rem/1.3 "Courier New",monospace;text-transform:uppercase;letter-spacing:.08em}
 
-        .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-        .card { grid-column: span 12; background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 18px; }
-        @media (min-width: 720px) { .card.half { grid-column: span 6; } }
+.stage{position:relative;aspect-ratio:1/1.02;border:1px solid #3a3843;background:#0d0d13;overflow:hidden;box-shadow:18px 18px 0 #15131f}
+.stage:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#21202a 1px,transparent 1px),linear-gradient(90deg,#21202a 1px,transparent 1px);background-size:28px 28px;opacity:.42}
+.stage:after{content:"RUN_07 // LIVE";position:absolute;top:18px;right:18px;color:#898695;font:700 .64rem "Courier New",monospace;letter-spacing:.12em}
+.platform{position:absolute;height:12px;background:#b6b3c1}.plat-a{left:8%;width:41%;bottom:18%}.plat-b{left:56%;right:7%;bottom:39%}.plat-c{left:34%;width:21%;bottom:59%}.plat-d{left:7%;width:16%;bottom:76%}
+.goal{position:absolute;right:11%;bottom:calc(39% + 12px);width:46px;height:78px;border:2px solid var(--signal);box-shadow:0 0 24px rgba(185,255,74,.12)}
+.goal:before{content:"EXIT";position:absolute;top:-18px;left:50%;transform:translateX(-50%);font:700 .55rem "Courier New",monospace;letter-spacing:.14em;color:var(--signal)}
+.switch{position:absolute;left:40%;bottom:calc(59% + 12px);width:38px;height:7px;background:var(--danger)}
+.body{position:absolute;width:22px;height:36px;border-radius:10px 10px 4px 4px;transform-origin:bottom center}.player{left:16%;bottom:calc(18% + 12px);background:white;box-shadow:0 0 18px rgba(255,255,255,.28)}
+.ghost{background:rgba(168,144,255,.16);border:1px solid var(--ghost);box-shadow:8px 0 0 rgba(168,144,255,.08)}
+.g1{left:27%;bottom:calc(18% + 12px);animation:bob 3.6s ease-in-out infinite}.g2{left:42%;bottom:calc(59% + 12px);animation:slide 4.4s ease-in-out infinite}.g3{left:68%;bottom:calc(39% + 12px);animation:bob 4.1s ease-in-out infinite reverse}
+.echo-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--ghost),transparent);opacity:.35}.e1{left:15%;width:31%;bottom:31%}.e2{left:34%;width:42%;bottom:69%}
+.stage-note{position:absolute;left:18px;bottom:16px;background:#0a0a0ecc;border:1px solid #33313c;padding:8px 10px;color:#9b98aa;font:700 .64rem "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase}
+@keyframes bob{50%{transform:translateY(-12px)}}@keyframes slide{50%{transform:translateX(10px)}}
 
-        .btns { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-        .btn { display:inline-block; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-weight:600; }
-        .btn.primary { border-color: color-mix(in srgb, var(--accent) 60%, var(--border)); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 18%, transparent), transparent); }
-        .btn.secondary { border-color: var(--border); }
+.section{padding:96px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:34px;margin-bottom:42px}.section-index{font:700 .72rem "Courier New",monospace;color:#6f6c7a;letter-spacing:.12em;text-transform:uppercase}.section-title h2{margin:0;font-size:clamp(2.6rem,5vw,5.4rem);line-height:.9;letter-spacing:-.055em;max-width:930px}.section-title p{color:#a7a4b0;max-width:720px;font-size:1.08rem;margin:22px 0 0}
 
-        h2 { margin: 8px 0 8px; font-size: 18px; letter-spacing: .2px; }
-        .list { margin: 0; padding-left: 16px; }
+.loop-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.step{min-height:260px;padding:26px;position:relative}.step+.step{border-left:1px solid var(--line)}.step-no{font:700 .7rem "Courier New",monospace;color:var(--signal);letter-spacing:.14em}.step h3{font-size:1.8rem;letter-spacing:-.04em;margin:70px 0 12px}.step p{margin:0;color:#9d9aa7}.step .symbol{position:absolute;top:22px;right:24px;font-size:2.2rem;color:#4f4d59}
 
-        footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 14px; }
+.system-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.diagram{border:1px solid var(--line);padding:28px;background:#0c0c12}.run{display:grid;grid-template-columns:74px 1fr 40px;gap:14px;align-items:center;padding:17px 0;border-bottom:1px dashed #302e39}.run:last-child{border-bottom:0}.run-label,.run-result{font:700 .67rem "Courier New",monospace;color:#858291}.bar{height:12px;background:#1f1e27;position:relative}.bar i{display:block;height:100%}.run:nth-child(1) i{width:32%;background:var(--danger)}.run:nth-child(2) i{width:59%;background:#6f58d9}.run:nth-child(3) i{width:82%;background:#a890ff}.run:nth-child(4) i{width:100%;background:var(--signal)}
+.principles{display:grid;gap:12px}.principle{border:1px solid var(--line);padding:22px 24px;background:#0d0d13}.principle b{display:block;font-size:1.05rem;margin-bottom:6px}.principle span{color:#9794a2}.principle em{font-style:normal;color:var(--ghost);font:700 .66rem "Courier New",monospace;letter-spacing:.1em;text-transform:uppercase}
 
-        @media (prefers-reduced-motion: no-preference) {
-            .card { transition: transform .2s ease, box-shadow .2s ease; }
-            .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.15); }
-        }
-    </style>
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.feature{border:1px solid var(--line);padding:28px;min-height:220px;background:#0c0c12}.feature .glyph{font:700 2rem "Courier New",monospace;color:var(--ghost);margin-bottom:46px}.feature h3{font-size:1.35rem;margin:0 0 8px}.feature p{margin:0;color:#9d9aa7}
+
+.validation{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}.validation-copy p{color:#a5a2ae;font-size:1.06rem}.metric-list{border:1px solid var(--line);background:#0d0d13}.metric{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:20px 22px;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.metric strong{font:700 .67rem "Courier New",monospace;color:var(--signal);letter-spacing:.1em;text-transform:uppercase}.metric span{color:#bbb8c4}
+
+.final{padding:110px 0 92px;border-top:1px solid var(--line);text-align:center}.final .kicker{margin-bottom:20px}.final h2{font-size:clamp(3rem,6.5vw,6.7rem);line-height:.88;letter-spacing:-.06em;margin:0 auto 24px;max-width:950px}.final p{max-width:680px;margin:0 auto;color:#a9a6b1}.status{display:inline-flex;align-items:center;gap:9px;margin-top:28px;border:1px solid #3c3946;padding:10px 13px;font:700 .7rem "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase}.status i{width:7px;height:7px;background:var(--signal);border-radius:50%;box-shadow:0 0 12px rgba(185,255,74,.6)}
+footer{border-top:1px solid var(--line);padding:28px 0 46px;color:#767381;font-size:.85rem}.footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer-code{font-family:"Courier New",monospace}
+
+@media(max-width:900px){.hero,.system-grid,.validation{grid-template-columns:1fr}.hero{padding-top:46px}.stage{max-width:680px}.section-head{grid-template-columns:1fr}.loop-grid{grid-template-columns:1fr}.step+.step{border-left:0;border-top:1px solid var(--line)}.features{grid-template-columns:1fr}.section{padding:74px 0}}
+@media(max-width:640px){.wrap{width:calc(100% - 28px)}.nav-links{display:none}.hero{gap:40px}.hero h1{font-size:clamp(3.5rem,20vw,5.8rem)}.meta{gap:10px}.section-title h2{font-size:clamp(2.6rem,13vw,4.2rem)}.metric{grid-template-columns:1fr}.stage{box-shadow:10px 10px 0 #15131f}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ghost{animation:none!important}.btn{transition:none}}
+
+.concept-shot{margin:0 0 8px;border:1px solid var(--line);background:#0d0d13}
+.concept-shot img{display:block;width:100%;height:auto}
+.concept-shot figcaption{padding:12px 14px;color:#777482;font:700 .66rem "Courier New",monospace;letter-spacing:.09em;text-transform:uppercase;border-top:1px solid var(--line)}
+
+</style>
 </head>
 <body>
-<header>
-    <div class="wrap nav">
-        <a href="#top" aria-label="Inicio">PV</a>
-        <nav class="links" aria-label="Secciones del portfolio">
-            <a href="#proyectos">Proyectos</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </div>
-</header>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">ECHOES <span>/</span> FAILURE</a>
+    <div class="nav-links"><a href="#loop">Loop</a><a href="#system">System</a><a href="#features">Features</a><a href="#prototype">Prototype</a></div>
+  </div>
+</nav>
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="kicker">Puzzle-platformer / Student project</div>
+        <h1>Echoes<br><span class="ghost-word">of Failure</span></h1>
+        <p class="hero-copy"><strong>Every mistake stays behind. Use it.</strong> Each failed run returns as a ghost that repeats your actions. Solve the room by cooperating with the history of your own attempts.</p>
+        <div class="cta-row"><a class="btn primary" href="#loop">Understand the mechanic</a><a class="btn" href="#prototype">Prototype plan</a></div>
+        <div class="meta"><span>PC FIRST</span><span>PREMIUM INDIE</span><span>EARLY CONCEPT</span></div>
+      </div>
+      <div class="stage" aria-label="Stylised puzzle room with a current player and three replay ghosts">
+        <div class="platform plat-a"></div><div class="platform plat-b"></div><div class="platform plat-c"></div><div class="platform plat-d"></div>
+        <div class="goal"></div><div class="switch"></div>
+        <div class="body player"></div><div class="body ghost g1"></div><div class="body ghost g2"></div><div class="body ghost g3"></div>
+        <div class="echo-line e1"></div><div class="echo-line e2"></div>
+        <div class="stage-note">3 echoes active / current run live</div>
+      </div>
+    </section>
 
-<main id="top" class="wrap">
-    <section class="hero" aria-labelledby="titulo">
-        <div class="avatar" aria-hidden="true">PV</div>
-        <div>
-            <h1 id="titulo">Pablo Vicente Rozalén Fernández</h1>
-            <p class="muted">Programador <strong>C# / Unity</strong>.</p>
-            <div class="btns">
-                <a class="btn primary" href="./CV_Pablo_Vicente.pdf">Descargar CV (PDF)</a>
-                <a class="btn secondary" href="#contacto">Contacto</a>
-            </div>
-        </div>
+    <figure class="concept-shot">
+      <img src="assets/echoes-hero.png" alt="Gameplay concept mockup showing a live player and several translucent replay ghosts coordinating across a puzzle room">
+      <figcaption>Gameplay concept mockup / replay ghosts coordinating across one room</figcaption>
+    </figure>
+
+
+    <section class="section" id="loop">
+      <div class="section-head"><div class="section-index">01 / CORE LOOP</div><div class="section-title"><h2>Failure is not a reset.</h2><p>It is the material the next attempt is built from.</p></div></div>
+      <div class="loop-grid">
+        <article class="step"><div class="step-no">01 — ATTEMPT</div><div class="symbol">→</div><h3>Try the room</h3><p>Move, jump, trigger switches and test a route through the puzzle.</p></article>
+        <article class="step"><div class="step-no">02 — FAIL</div><div class="symbol">×</div><h3>Your run remains</h3><p>Resetting leaves behind an echo that repeats exactly what you did.</p></article>
+        <article class="step"><div class="step-no">03 — COOPERATE</div><div class="symbol">∞</div><h3>Use your past self</h3><p>Stack imperfect attempts until their combined actions create one complete solution.</p></article>
+      </div>
     </section>
-    <br>
-    <section id="proyectos" class="grid" aria-labelledby="proyectos-titulo">
-        <div class="card" role="article" aria-labelledby="lobstar-title">
-            <span class="tag" aria-label="Premios a Lobstar">Premios: Favorito del público y del jurado — Florida Game Fest</span>
-            <h2 id="lobstar-title">Lobstar (Unity/C#)</h2>
-            <p>Acción kaiju: destruye capitales del mundo para saciar el hambre y crecer. Rol: programación en Unity/C# y preparación de demo/presentación.</p>
-            <div class="btns">
-                <a class="btn primary" href="./Lobstar/">Jugar en el navegador (WebGL)</a>
-                <a class="btn secondary" href="#contacto">Solicitar más información</a>
-            </div>
+
+    <section class="section" id="system">
+      <div class="section-head"><div class="section-index">02 / GHOST SYSTEM</div><div class="section-title"><h2>Build a solution out of failed runs.</h2><p>Every attempt records the player's actions. On reset, that recording becomes a deterministic echo inside the room.</p></div></div>
+      <div class="system-grid">
+        <div class="diagram">
+          <div class="run"><div class="run-label">RUN_01</div><div class="bar"><i></i></div><div class="run-result">FAIL</div></div>
+          <div class="run"><div class="run-label">RUN_02</div><div class="bar"><i></i></div><div class="run-result">FAIL</div></div>
+          <div class="run"><div class="run-label">RUN_03</div><div class="bar"><i></i></div><div class="run-result">FAIL</div></div>
+          <div class="run"><div class="run-label">RUN_04</div><div class="bar"><i></i></div><div class="run-result">SOLVED</div></div>
         </div>
-    </section>
-    <br>
-    <section id="habilidades" class="grid" aria-labelledby="habilidades-titulo">
-        <div class="card">
-            <h2 id="habilidades-titulo">Habilidades</h2>
-            <ul class="list">
-                <li><strong>Programación:</strong> C#, Unity, control de versiones con Git/GitHub.</li>
-                <li><strong>PC:</strong> componentes, montaje propio y mantenimiento básico.</li>
-                <li><strong>Android:</strong> configuración y migración de datos.</li>
-                <li><strong>Smart home:</strong> configuración básica de ecosistemas domésticos.</li>
-            </ul>
+        <div class="principles">
+          <div class="principle"><em>Readability</em><b>Current player vs. recorded echoes</b><span>The live player is solid white. Past attempts are translucent violet silhouettes, readable at a glance.</span></div>
+          <div class="principle"><em>Reliability</em><b>Deterministic playback</b><span>Echoes reproduce recorded actions consistently, so success depends on planning rather than randomness.</span></div>
+          <div class="principle"><em>Rhythm</em><b>Instant retry</b><span>Resetting is immediate. The design encourages experimentation instead of punishing it.</span></div>
         </div>
+      </div>
     </section>
-    <br>
-    <section id="contacto" class="grid" aria-labelledby="contacto-titulo">
-        <div class="card">
-            <h2 id="contacto-titulo">Contacto</h2>
-            <p>¿Hablamos? Escríbeme a <a href="mailto:pabloski.2002@gmail.com">pabloski.2002@gmail.com</a> o llámame al <a href="tel:+34633323259">+34 633 323 259</a>.</p>
+
+    <section class="section" id="features">
+      <div class="section-head"><div class="section-index">03 / VALUE</div><div class="section-title"><h2>One rule. A lot of puzzle depth.</h2><p>The mechanic is easy to communicate, visually distinctive and capable of scaling into increasingly elaborate rooms.</p></div></div>
+      <div class="features">
+        <article class="feature"><div class="glyph">↺</div><h3>Failure becomes progress</h3><p>Every reset adds information and a new mechanical resource instead of erasing the attempt.</p></article>
+        <article class="feature"><div class="glyph">◌◌</div><h3>Cooperate with yourself</h3><p>Past versions can hold switches, trigger hazards and create openings for the live player.</p></article>
+        <article class="feature"><div class="glyph">⚡</div><h3>Fast experimentation</h3><p>Short rooms and instant retries encourage “one more attempt” problem-solving.</p></article>
+        <article class="feature"><div class="glyph">◇</div><h3>Expandable system</h3><p>Moving platforms, timed doors, hazards and synchronized actions add depth without changing the core rule.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="prototype">
+      <div class="validation">
+        <div class="validation-copy">
+          <div class="section-index">04 / VALIDATION</div>
+          <div class="section-title" style="margin-top:18px"><h2>Prototype the idea, not the whole game.</h2></div>
+          <p>The first build only needs responsive movement, instant reset, replay recording and three compact rooms. The goal is to test whether players understand the system and intentionally turn failed attempts into tools.</p>
         </div>
+        <div class="metric-list">
+          <div class="metric"><strong>Scope</strong><span>1 greybox environment · 3 micro-puzzles · keyboard/controller</span></div>
+          <div class="metric"><strong>Players</strong><span>8–12 short playtests</span></div>
+          <div class="metric"><strong>Observe</strong><span>Time to first intentional ghost use · retries · completion · confusion points</span></div>
+          <div class="metric"><strong>Success</strong><span>Players can explain the rule and deliberately plan with previous runs.</span></div>
+        </div>
+      </div>
     </section>
+
+    <section class="final">
+      <div class="kicker">Development status</div>
+      <h2>Every failure leaves something useful behind.</h2>
+      <p>Echoes of Failure is an early student-project concept by Pablo Vicente Rozalén Fernández and Doménec Gregori Esteve. The next milestone is a small greybox prototype focused entirely on the replay-ghost mechanic.</p>
+      <div class="status"><i></i> Prototype validation planned</div>
+    </section>
+  </div>
 </main>
-
-<footer>
-    <div class="wrap">© <span id="y"></span> Pablo Vicente Rozalén Fernández — València</div>
-</footer>
-
-<script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<footer><div class="wrap footer-inner"><span>Echoes of Failure · Student project</span><span class="footer-code">PABLO VICENTE ROZALÉN FERNÁNDEZ / DOMÉNEC GREGORI ESTEVE</span></div></footer>
 </body>
 </html>
