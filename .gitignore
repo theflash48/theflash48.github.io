@@ -1,1 +1,4 @@
 .tmp.driveupload/
+
+# Local operating-system state
+desktop.ini
